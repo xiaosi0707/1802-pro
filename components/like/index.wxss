@@ -1,1 +1,13 @@
 /* components/like/index.wxss */
+.container image {
+  width: 32rpx;
+  height: 28rpx;
+  /* width: 16px; 设计图原尺寸 / 2 = 数字px
+  height: 14px; */
+}
+.container text {
+/* 只在IOS下生效，因为是苹果的字体  苹果中文的话字体应该是苹方 安卓下是思源*/
+  /* font-family: "PingFangSC-Thin";  */
+  font-size: 48rpx;
+  color: #bbb;
+}
