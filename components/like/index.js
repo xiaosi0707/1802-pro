@@ -27,8 +27,14 @@ Component({
  * 组件的方法列表
 */
   methods: {
-    onLike: function (ev) {
-      console.log(ev)
+    onLike: function () {
+      let like = this.properties.like
+      let count = this.properties.count
+      count = like ? count - 1 : count + 1
+      this.setData({
+        count,
+        like: !like
+      })
     }
   }
 })
