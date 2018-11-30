@@ -1,5 +1,8 @@
 // components/like/index.js
 Component({
+  data: {
+    count: 0
+  },
   /**
  * 组件的方法列表
 */
