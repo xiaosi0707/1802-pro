@@ -1,2 +1,2 @@
 <!--index.wxml-->
-<v-like like="{{ classicData.like_status }}" count="{{ classicData.fav_nums }}"></v-like>
+<f-like like="{{ classicData.like_status }}" count="{{ classicData.fav_nums }}"></f-like>

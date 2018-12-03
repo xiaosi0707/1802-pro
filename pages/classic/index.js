@@ -6,7 +6,6 @@ const app = getApp()
 
 Page({
   data: {
-    classicData: {}
   },
   onLoad: function () {
     classic.getDataLatest(res => {
