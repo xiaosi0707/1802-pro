@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "f-like": "/components/classic/like/index"
+    "f-like": "/components/classic/like/index",
+    "f-movie": "/components/classic/movie/index"
   }
 }
