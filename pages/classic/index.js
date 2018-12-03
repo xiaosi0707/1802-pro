@@ -14,5 +14,9 @@ Page({
         classicData: res
       })
     })
+  },
+  // 通过子组件传递过来的自定义事件来激活父组件中的方法
+  onLike: function (ev) {
+    console.log(ev)
   }
 })
