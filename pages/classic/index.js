@@ -6,11 +6,14 @@ const app = getApp()
 
 Page({
   data: {
-  
+    classicData: {}
   },
   onLoad: function () {
     classic.getDataLatest(res => {
       console.log(res)
+      this.setData({
+        classicData: res
+      })
     })
   }
 })
