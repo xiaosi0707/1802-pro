@@ -36,7 +36,7 @@ Component({
         like: !like
       })
       let behavior = this.properties.like ? 'like' : 'cancel';
-      // 子组件 - 自定义事件 - 通知父组件
+      // 第一步：子传父：子组件 - 自定义事件 - 通知父组件
       this.triggerEvent('like', {
         behavior
       }, {})

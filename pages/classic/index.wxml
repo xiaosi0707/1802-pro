@@ -1,3 +1,5 @@
 <!--index.wxml-->
+
+<!--第二步：子传父 绑定自定义事件.wxml-->
 <f-like bind:like="onLike" like="{{ classicData.like_status }}" count="{{ classicData.fav_nums }}"></f-like>
 <f-movie img="{{ classicData.image }}" content="{{ classicData.content }}"></f-movie>
