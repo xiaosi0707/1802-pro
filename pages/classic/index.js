@@ -25,5 +25,11 @@ Page({
     let behavior = ev.detail.behavior
     let { id, type } = this.data.classicData
     likeModel.like(behavior, id, type)
+  },
+  onPre () {
+    console.log(1)
+  },
+  onNext () {
+    console.log(2)
   }
 })
