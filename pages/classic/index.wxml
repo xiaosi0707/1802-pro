@@ -3,7 +3,7 @@
 <!--第二步：子传父 绑定自定义事件.wxml-->
 <view class="container">
     <view class="header">
-        <f-date></f-date>
+        <f-date index="{{ classicData.index }}"></f-date>
         <view class="like-container">
             <f-like bind:like="onLike" like="{{ classicData.like_status }}" count="{{ classicData.fav_nums }}"></f-like>
         </view>
