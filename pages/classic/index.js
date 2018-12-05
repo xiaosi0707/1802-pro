@@ -8,7 +8,9 @@ const app = getApp()
 
 Page({
   data: {
-    classicData: {}
+    classicData: {},
+    first: false,
+    last: true
   },
   onLoad: function () {
     classicModel.getDataLatest(res => {
