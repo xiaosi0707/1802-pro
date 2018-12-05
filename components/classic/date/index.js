@@ -13,8 +13,9 @@ Component({
         // console.log(newVal)
         let val = newVal < 10 ? '0' + newVal : newVal
         console.log(val)
+        // 千万不要在一个observer函数中去修改属性本身的值，否则的话很有可能引起无限递归造成内存泄漏的情况。
         this.setData({
-          index: val
+          _index: val
         })
       }
     }
