@@ -9,7 +9,7 @@
         </view>
     </view>
     <f-movie img="{{ classicData.image }}" content="{{ classicData.content }}"></f-movie>
-    <f-nav first="{{ first }}" last="{{ last }}"></f-nav>
+    <f-nav title="{{ classicData.title }}" first="{{ first }}" last="{{ last }}"></f-nav>
 </view>
 
 
