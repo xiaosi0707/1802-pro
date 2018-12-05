@@ -1,0 +1,12 @@
+<!--components/classic/date/index.wxml-->
+<view class="container">
+  <view class="index-container">
+    <text class="plain">No.</text>
+    <text class="index">08</text>
+    <view class="line"></view>
+  </view>
+  <view class="date-container">
+    <text class="month">七月</text>
+    <text class="year">2018</text>
+  </view>
+</view>
