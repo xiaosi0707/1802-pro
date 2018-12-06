@@ -28,6 +28,13 @@ Page({
   },
   onPre () {
     console.log(1)
+    let { index } = this.data.classicData
+    classicModel.getPrev(index, (res) => {
+      console.log(res)
+      this.setData({
+        classicData: res
+      })
+    })
   },
   onNext () {
     console.log(2)

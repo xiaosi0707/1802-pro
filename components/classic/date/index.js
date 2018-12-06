@@ -4,6 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    aaa: String,
     index: {
       type: String,
       observer(newVal, oldVal, changedPath) { // 属性被改变时执行的函数
