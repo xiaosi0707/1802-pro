@@ -36,10 +36,9 @@ Component({
       
     },
     onRight () {
-      if(this.properties.last) {
+      if(!this.properties.first) {
         this.triggerEvent('right', {}, {})
       }
-      
     }
   }
 })

@@ -27,16 +27,16 @@ Page({
     likeModel.like(behavior, id, type)
   },
   onPre () {
-    console.log(1)
-    let { index } = this.data.classicData
-    classicModel.getPrev(index, (res) => {
-      console.log(res)
-      this.setData({
-        classicData: res
-      })
-    })
+    
   },
   onNext () {
-    console.log(2)
+    let { index } = this.data.classicData
+    classicModel.getPrev(index, (res) => {
+      this.setData({
+        classicData: res,
+        last: classicModel.isLast(res.index),
+        first: classicModel.isFirst(res.index)
+      })
+    })
   }
 })
