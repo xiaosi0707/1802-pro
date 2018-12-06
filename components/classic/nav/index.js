@@ -7,10 +7,10 @@ Component({
     title: {
       type: String
     },
-    first: {
+    prev: {
       type: Boolean
     },
-    last: {
+    next: {
       type: Boolean
     }
   },

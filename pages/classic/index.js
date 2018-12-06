@@ -9,11 +9,12 @@ const app = getApp()
 Page({
   data: {
     classicData: {},
-    first: false,
-    last: true
+    prev: false,
+    next: true
   },
   onLoad: function () {
     classicModel.getDataLatest(res => {
+      wx.setStorageSync('index', res.index)
       this.setData({
         classicData: res
       })
@@ -28,6 +29,17 @@ Page({
   },
   onPre () {
     let { index } = this.data.classicData
+    this.setData({
+      next: true
+    })
+    if (index == (wx.getStorageSync('index') - 1)) {
+      
+      this.setData({
+        next: true,
+        prev: false
+      })
+      return
+    }
     classicModel.getNext(index, res => {
       this.setData({
         classicData: res
@@ -36,6 +48,17 @@ Page({
   },
   onNext () {
     let { index } = this.data.classicData
+    this.setData({
+      prev: true
+    })
+    if(index == 2) {
+      this.setData({
+        next: false,
+        prev: true
+      })
+      return
+      
+    }
     classicModel.getPrev(index, (res) => {
       this.setData({
         classicData: res
