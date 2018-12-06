@@ -30,15 +30,10 @@ Component({
    */
   methods: {
     onLeft () {
-      console.log(this.properties.first)
-      this.triggerEvent('left', {}, {})
-      
-      
+      this.triggerEvent('left', {}, {})      
     },
     onRight () {
-      if(!this.properties.first) {
-        this.triggerEvent('right', {}, {})
-      }
+      this.triggerEvent('right', {}, {})
     }
   }
 })
