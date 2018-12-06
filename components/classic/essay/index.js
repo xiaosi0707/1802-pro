@@ -1,4 +1,4 @@
-// components/movie/index.js
+// components/classic/essay/index.js
 import { classicBeh } from '../classic-behavior.js'
 Component({
   /**
