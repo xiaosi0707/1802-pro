@@ -12,6 +12,14 @@ class LikeModel extends HTTP {
       }
     })
   }
+  // 第一步：请求独立的点赞接口
+  getClassicLikeStatus(artID, category, callback) {
+    this.request({
+      url: `classic/${category}/${artID}/favor`,
+      success: callback
+    })
+  }
+
 }
 
 export { LikeModel }
