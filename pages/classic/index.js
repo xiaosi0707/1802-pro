@@ -14,7 +14,6 @@ Page({
   },
   onLoad: function () {
     classicModel.getDataLatest(res => {
-      wx.setStorageSync('index', res.index)
       this.setData({
         classicData: res
       })
