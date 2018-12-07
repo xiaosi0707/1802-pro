@@ -30,10 +30,10 @@ Component({
    */
   methods: {
     onLeft () {
-      this.triggerEvent('left', {}, {})      
+      this.triggerEvent('right', {}, {})      
     },
     onRight () {
-      this.triggerEvent('right', {}, {})
+      this.triggerEvent('left', {}, {})
     }
   }
 })

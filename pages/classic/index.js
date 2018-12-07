@@ -27,42 +27,18 @@ Page({
     let { id, type } = this.data.classicData
     likeModel.like(behavior, id, type)
   },
-  onPre () {
+  updateClassic (nextOrPrev) {
     let { index } = this.data.classicData
-    this.setData({
-      next: true
-    })
-    if (index == (wx.getStorageSync('index') - 1)) {
-      
-      this.setData({
-        next: true,
-        prev: false
-      })
-      return
-    }
-    classicModel.getNext(index, res => {
+    classicModel.getClassic(index, nextOrPrev, res => {
       this.setData({
         classicData: res
       })
     })
   },
+  onPre () {
+    this.updateClassic('previous')
+  },
   onNext () {
-    let { index } = this.data.classicData
-    this.setData({
-      prev: true
-    })
-    if(index == 2) {
-      this.setData({
-        next: false,
-        prev: true
-      })
-      return
-      
-    }
-    classicModel.getPrev(index, (res) => {
-      this.setData({
-        classicData: res
-      })
-    })
+    this.updateClassic('next')
   }
 })

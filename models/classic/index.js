@@ -10,24 +10,32 @@ class ClassicModel extends HTTP {
       }
     })
   }
+  getClassic (index, nextOrPrev, callback) {
+    this.request({
+      url: `classic/${index}/${nextOrPrev}`,
+      success: res => {
+        callback(res)
+      }
+    })
+  }
   // 上一期
-  getPrev (index, callback) {
-    this.request({
-      url: `/classic/${index}/previous`,
-      success (res) {
-        callback(res)
-      }
-    })
-  }
+  // getPrev (index, callback) {
+  //   this.request({
+  //     url: `/classic/${index}/previous`,
+  //     success (res) {
+  //       callback(res)
+  //     }
+  //   })
+  // }
   // 下一期
-  getNext (index, callback) {
-    this.request({
-      url: `/classic/${index}/next`,
-      success (res) {
-        callback(res)
-      }
-    })
-  }
+  // getNext (index, callback) {
+  //   this.request({
+  //     url: `/classic/${index}/next`,
+  //     success (res) {
+  //       callback(res)
+  //     }
+  //   })
+  // }
 }
 
 export { ClassicModel }
