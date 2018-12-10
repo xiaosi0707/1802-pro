@@ -1,5 +1,6 @@
 // components/classic/music/index.js
 import { classicBeh } from '../classic-behavior.js'
+const musicManObj = wx.getBackgroundAudioManager()
 Component({
   /**
    * 组件的属性列表
@@ -8,7 +9,8 @@ Component({
   properties: {
     img: String,
     content: String,
-    
+    src: String,
+    title: String
   },
 
   /**
@@ -24,6 +26,21 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onPlay (ev) {
+      if(!this.data.playing) {
+        this.setData({
+          playing: true
+        })
+        musicManObj.src = this.properties.src
+        musicManObj.title = this.properties.title
+      }
+      else {
+        this.setData({
+          playing: false
+        })
+        musicManObj.pause()
+      }
+      
+    }
   }
 })
