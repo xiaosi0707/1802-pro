@@ -5,7 +5,7 @@
     <view class="header">
         <f-date index="{{ classicData.index }}"></f-date>
         <view class="like-container">
-            <f-like bind:like="onLike" like="{{ classicData.like_status }}" count="{{ classicData.fav_nums }}"></f-like>
+            <f-like bind:like="onLike" like="{{ likeStatus }}" count="{{ likeCount }}"></f-like>
         </view>
     </view>
     <f-movie hidden="{{ classicData.type != 100 }}" img="{{ classicData.image }}" content="{{ classicData.content }}"></f-movie>
