@@ -23,19 +23,7 @@ Component({
   },
   attached: function() {
     console.log(1)
-    // 如果没有歌曲播放，那么显示停止状态
-    if(musicManObj.paused) {
-      this.setData({
-        playing: false
-      })
-      return
-    }
-    // 如果后台播放的歌曲 == 当前正在播放的歌曲，那么显示播放状态
-    if(musicManObj.src == this.properties.src) {
-      this.setData({
-        playing: true
-      })
-    }
+    this._musicStatus()
   },
   detached (ev) {
     // wx:if和hidden区别
@@ -66,6 +54,37 @@ Component({
         musicManObj.pause()
       }
       
+    },
+
+    // 监听音乐状态方法
+    _musicStatus () {
+      // 如果没有歌曲播放，那么显示停止状态
+      if (musicManObj.paused) {
+        this.setData({
+          playing: false
+        })
+        return
+      }
+      // 如果后台播放的歌曲 == 当前正在播放的歌曲，那么显示播放状态
+      if (musicManObj.src == this.properties.src) {
+        this.setData({
+          playing: true
+        })
+      }
+    },
+    backStageMusicStatus () {
+      musicManObj.onPlay(() => {
+        this._musicStatus()
+      })
+      musicManObj.onPause(() => {
+        this._musicStatus()
+      })
+      musicManObj.onStop(() => {
+        this._musicStatus()
+      })
+      musicManObj.onEnded(() => {
+        this._musicStatus()
+      })
     }
   }
 })
