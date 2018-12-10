@@ -24,6 +24,7 @@ Component({
   attached: function() {
     console.log(1)
     this._musicStatus()
+    this._backStageMusicStatus()
   },
   detached (ev) {
     // wx:if和hidden区别
@@ -72,16 +73,20 @@ Component({
         })
       }
     },
-    backStageMusicStatus () {
+    _backStageMusicStatus () {
+      // 播放
       musicManObj.onPlay(() => {
         this._musicStatus()
       })
+      // 暂停
       musicManObj.onPause(() => {
         this._musicStatus()
       })
+      // 停止 - 关闭播放面板
       musicManObj.onStop(() => {
         this._musicStatus()
       })
+      // 播放结束
       musicManObj.onEnded(() => {
         this._musicStatus()
       })
