@@ -1,2 +1,2 @@
 <!--components/classic/music/index.wxml-->
-<text>components/classic/music/index.wxml</text>
+<view hidden="{{ hidden }}"></view>
