@@ -22,6 +22,9 @@ Component({
     playSrc: 'images/player@play.png'
   },
   detached (ev) {
+    // wx:if和hidden区别
+    // if会执行完成的生命周期，因此detached会被触发,歌曲停止播放
+    // hidden只是单纯的显示隐藏，因此不会触发生命周期，歌曲继续播放
     musicManObj.stop()
   },
 
