@@ -21,6 +21,9 @@ Component({
     pauseSrc: 'images/player@pause.png',
     playSrc: 'images/player@play.png'
   },
+  detached (ev) {
+    musicManObj.stop()
+  },
 
   /**
    * 组件的方法列表

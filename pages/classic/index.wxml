@@ -8,8 +8,8 @@
             <f-like bind:like="onLike" like="{{ likeStatus }}" count="{{ likeCount }}"></f-like>
         </view>
     </view>
-    <f-movie hidden="{{ classicData.type != 100 }}" img="{{ classicData.image }}" content="{{ classicData.content }}"></f-movie>
-    <f-music hidden="{{ classicData.type != 200 }}" img="{{ classicData.image }}" content="{{ classicData.content }}" src="{{ classicData.url }}" title="{{ classicData.title }}"></f-music>
+    <f-movie wx:if="{{ classicData.type == 100 }}" img="{{ classicData.image }}" content="{{ classicData.content }}"></f-movie>
+    <f-music wx:if="{{ classicData.type == 200 }}" img="{{ classicData.image }}" content="{{ classicData.content }}" src="{{ classicData.url }}" title="{{ classicData.title }}"></f-music>
     <f-essay hidden="{{ classicData.type != 300 }}" img="{{ classicData.image }}" content="{{ classicData.content }}"></f-essay>
     <f-nav bind:left="onNext" bind:right="onPre" title="{{ classicData.title }}" prev="{{ prev }}" next="{{ next }}"></f-nav>
 </view>
