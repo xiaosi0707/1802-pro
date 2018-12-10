@@ -7,14 +7,16 @@ Component({
   behaviors: [classicBeh],
   properties: {
     img: String,
-    content: String
+    content: String,
+    
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    pauseSrc: 'images/player@waiting.png',
+    playing: false,
+    pauseSrc: 'images/player@pause.png',
     playSrc: 'images/player@play.png'
   },
 

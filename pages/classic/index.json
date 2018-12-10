@@ -2,6 +2,8 @@
   "usingComponents": {
     "f-like": "/components/classic/like/index",
     "f-movie": "/components/classic/movie/index",
+    "f-music": "/components/classic/music/index",
+    "f-essay": "/components/classic/essay/index",
     "f-date": "/components/classic/date/index",
     "f-nav": "/components/classic/nav/index"
   }

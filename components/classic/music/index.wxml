@@ -1,2 +1,8 @@
 <!--components/classic/music/index.wxml-->
-<view hidden="{{ hidden }}"></view>
+<view class="container" hidden="{{hidden}}" >
+    <image class="classic-img" src="{{img}}" />
+    <image class="player-img" 
+        src="images/player@play.png" />
+    <image class="tag" src="images/music@tag.png" />
+    <text class="content">{{content}}</text>
+</view>
