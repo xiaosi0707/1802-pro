@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "f-like": "/components/classic/like/index",
-    "f-movie": "/components/classic/movie/index",
-    "f-date": "/components/classic/date/index",
-    "f-nav": "/components/classic/nav/index"
-  }
-}
