@@ -7,13 +7,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    books: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    bookModel.getHotList().then(res => {
+      console.log(res)
+      this.setData({
+        books: res
+      })
+    })
     // promise正确用法
     // bookModel.getHotList().then(res => {
     //   console.log(res)

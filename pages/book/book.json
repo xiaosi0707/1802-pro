@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "f-book": "/components/classic/book/index"
+  }
+}
