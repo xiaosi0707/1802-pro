@@ -18,7 +18,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onTap (ev) {
+      const { id } = this.properties.book
+      wx.navigateTo({
+        url: `/pages/book-detail/book-detail?id=${id}`,
+      })
+    }
   },
   attached () {
     console.log(this.properties)
