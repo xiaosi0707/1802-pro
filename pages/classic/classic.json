@@ -5,6 +5,7 @@
     "f-music": "/components/classic/music/index",
     "f-essay": "/components/classic/essay/index",
     "f-date": "/components/classic/date/index",
-    "f-nav": "/components/classic/nav/index"
+    "f-nav": "/components/classic/nav/index",
+    "f-button": "/components/classic/image-button/index"
   }
 }

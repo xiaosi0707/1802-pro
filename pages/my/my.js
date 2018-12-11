@@ -5,62 +5,48 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    authorized: false,
+    userInfo: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 调用此方法判断是否授权，然后做相应的逻辑处理
+    this.userAuthoriza()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 是否授过权？
+  userAuthoriza() {
+    let _this = this
+    wx.getSetting({
+      success(data) {
+        // console.log(data)
+        // 已授权
+        if (data.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success(data) {
+              _this.setData({
+                authorized: true,
+                userInfo: data.userInfo
+              })
+            }
+          })
+        } else { // 未授权
+          console.log('未授权')
+        }
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // image-button子组件通信到父组件
+  onGetUserInfo (ev) {
+    const { userInfo } = ev.detail
+    if(userInfo) {
+      this.setData({
+        userInfo,
+        authorized: true
+      })
+    }
+    
   }
 })

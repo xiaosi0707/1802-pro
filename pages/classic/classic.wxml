@@ -6,6 +6,9 @@
         <f-date index="{{ classicData.index }}"></f-date>
         <view class="like-container">
             <f-like bind:like="onLike" like="{{ likeStatus }}" count="{{ likeCount }}"></f-like>
+            <f-button class="share-btn" open-type="share"  >
+            <image class="share" src="/images/icon/share.png" slot="img"></image>
+            </f-button>
         </view>
     </view>
     <f-movie hidden="{{ classicData.type != 100 }}" img="{{ classicData.image }}" content="{{ classicData.content }}"></f-movie>
