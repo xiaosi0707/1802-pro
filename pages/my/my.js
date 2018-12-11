@@ -1,4 +1,12 @@
 // pages/my/my.js
+import {
+  ClassicModel
+} from '../../models/classic/index.js'
+import {
+  BookModel
+} from '../../models/book.js'
+const classicModel = new ClassicModel()
+const bookModel = new BookModel()
 Page({
 
   /**
@@ -6,15 +14,25 @@ Page({
    */
   data: {
     authorized: false,
-    userInfo: null
+    userInfo: null,
+    bookCount: 0,
+    classicData: null
   },
-
+  getMyBookCount() { 
+    bookModel.getMyBookCount()
+      .then(res => {
+        this.setData({
+          bookCount: res.count
+        })
+      })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     // 调用此方法判断是否授权，然后做相应的逻辑处理
     this.userAuthoriza()
+    this.getMyBookCount()
   },
   // 是否授过权？
   userAuthoriza() {
