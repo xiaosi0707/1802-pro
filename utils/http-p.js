@@ -1,4 +1,4 @@
-import { config, func1 } from '../config.js'
+import { config } from '../config.js'
 // 根据返回错误码，给予对应的提示
 const tips = {
   1: '抱歉，出错了',
@@ -14,7 +14,7 @@ class HTTP{
    }
   _request (url, resolve, reject, data={}, method='GET') {
     wx.request({
-      url: config.api_base_url + url,
+      url: url.includes('http') ? url : config.api_base_url + url,
       method,
       data,
       header: {

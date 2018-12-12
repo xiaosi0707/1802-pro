@@ -13,7 +13,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    historyWords: []
+    historyWords: [],
+    hotWords: []
   },
 
   /**
@@ -32,5 +33,14 @@ Component({
     this.setData({
       historyWords: keywordModel.getHistory() // 从storage中获取数据
     })
+    // 获取热搜列表
+    keywordModel.getHot().then(res => {
+      const { hot } = res.data
+      console.log(hot)
+      this.setData({
+        hotWords: hot
+      })
+    })
+    
   }
 })

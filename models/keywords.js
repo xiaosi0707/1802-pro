@@ -1,11 +1,17 @@
-class KeyWordsModel {
+import { HTTP } from '../utils/http-p.js'
+class KeyWordsModel extends HTTP {
   key = 'q'
   maxLength = 10
   // 获取storage中的数据
   getHistory () {
     return wx.getStorageSync(this.key) || []
   }
-  getHot () {}
+  getHot () {
+    return this.request({
+      url: 'https://www.easy-mock.com/mock/5a52256ad408383e0e3868d7/lagou/hot'
+    })
+  }
+  
   // 添加数据到storage中
   addToHistory (keyword) {
     // 获取storage中的关键字
