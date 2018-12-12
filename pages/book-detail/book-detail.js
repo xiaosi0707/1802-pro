@@ -20,26 +20,39 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     const { id } = options
     const detail = bookModel.getBookDetail(id)
     const comments = bookModel.getComments(id)
     const likeStatus = bookModel.getLikeStatus(id)
-    detail.then(res => {
+    Promise.all([detail, comments, likeStatus]).then(res => {
+      console.log(res)
+      wx.hideLoading()
       this.setData({
-        detail: res
+        detail: res[0],
+        comments: res[1],
+        likeStatus: res[2]
       })
+      
     })
-    comments.then(res => {
-      this.setData({
-        comments: res
-      })
-    })
-    likeStatus.then(res => {
-      this.setData({
-        likeStatus: res.like_status,
-        likeCount: res.fav_nums
-      })
-    })
+    // detail.then(res => {
+    //   this.setData({
+    //     detail: res
+    //   })
+    // })
+    // comments.then(res => {
+    //   this.setData({
+    //     comments: res
+    //   })
+    // })
+    // likeStatus.then(res => {
+    //   this.setData({
+    //     likeStatus: res.like_status,
+    //     likeCount: res.fav_nums
+    //   })
+    // })
   },
   onFakePost(event) {
     this.setData({
