@@ -18,7 +18,8 @@ Component({
     historyWords: [],
     hotWords: [],
     searching: false,
-    dataArray: []
+    dataArray: [],
+    val: ''
   },
 
   /**
@@ -33,17 +34,23 @@ Component({
       this.setData({
         searching: true
       })
-      const word = ev.detail.value
+      const word = ev.detail.value // 从热门搜索、历史记录、输入，取value值
       // 搜索API请求
       bookModel.getSearchList(0, word).then(res => {
         console.log(res)
         this.setData({
-          dataArray: res.books
+          dataArray: res.books,
+          val: word
         })
         // 搜索到结果后添加到storage，没结果没意义
         keywordModel.addToHistory(word) 
       })
       
+    },
+    cancelSearch () {
+      this.setData({
+        searching: false
+      })
     }
   },
   attached () {

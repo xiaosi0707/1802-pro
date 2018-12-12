@@ -25,7 +25,7 @@ Component({
   methods: {
     onTap (ev) {
       this.triggerEvent('receiveTag', {
-        text: this.properties.text
+        value: this.properties.text
       })
     }
   }
