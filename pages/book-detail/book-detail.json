@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "f-tag": "/components/classic/tag/index"
+    "f-tag": "/components/classic/tag/index",
+    "f-like": "/components/classic/like/index"
   }
 }
