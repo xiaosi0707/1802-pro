@@ -12,7 +12,8 @@ Page({
     comments: [],
     detail: null,
     likeStatue: false,
-    likeCount: 0
+    likeCount: 0,
+    posting: false
   },
 
   /**
@@ -38,6 +39,17 @@ Page({
         likeStatus: res.like_status,
         likeCount: res.fav_nums
       })
+    })
+  },
+  onFakePost(event) {
+    this.setData({
+      posting: true
+    })
+  },
+
+  onCancel(event) {
+    this.setData({
+      posting: false
     })
   },
   onLike (ev) {
