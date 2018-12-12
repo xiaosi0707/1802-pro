@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "f-tag": "/components/classic/tag/index"
+    "f-tag": "/components/classic/tag/index",
+    "f-book": "/components/classic/book/index"
   }
 }
