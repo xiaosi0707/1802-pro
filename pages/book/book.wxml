@@ -15,4 +15,4 @@
         </view>
     </view>
 </view>
-<f-search wx:if="{{ searching }}" bind:cancel="cancelCallBack"/>
+<f-search wx:if="{{ searching }}" more="{{ more }}" bind:cancel="cancelCallBack"/>

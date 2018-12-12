@@ -8,7 +8,8 @@ Page({
    */
   data: {
     books: [],
-    searching: false
+    searching: false,
+    more: 0
   },
 
   /**
@@ -81,6 +82,12 @@ Page({
   cancelCallBack () {
     this.setData({
       searching: false
+    })
+  },
+  onReachBottom () {
+    console.log(1)
+    this.setData({
+      more: Math.random()
     })
   }
 })
