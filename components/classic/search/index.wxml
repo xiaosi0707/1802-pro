@@ -16,7 +16,7 @@
             </view>
             <view class="tags">
                 <block wx:key="" wx:for="{{historyWords}}">
-                    <v-tag bind:tapping="onConfirm" text="{{item}}" />
+                    <f-tag bind:tapping="onConfirm" text="{{item}}" />
                 </block>
             </view>
         </view>

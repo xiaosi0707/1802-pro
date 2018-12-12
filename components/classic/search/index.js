@@ -13,7 +13,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    historyWords: []
   },
 
   /**
@@ -27,5 +27,10 @@ Component({
       const word = ev.detail.value
       keywordModel.addToHistory(word)
     }
+  },
+  attached () {
+    this.setData({
+      historyWords: keywordModel.getHistory() // 从storage中获取数据
+    })
   }
 })
