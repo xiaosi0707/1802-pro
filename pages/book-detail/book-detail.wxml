@@ -57,7 +57,7 @@
     </view>
     <view class="comment-container">
         <block wx:for="{{ util.limit(comments.comments, 3) }}" wx:key="content">
-                <f-tag tag-class="{{toolStyle.commentsStyle(index)}}" text="{{item.content}}">
+                <f-tag tag-class="{{toolStyle.commentsStyle(index)}}" text="{{item.content}}" bind:receiveTag="tagCallBack">
                     <text class="num" slot="after">{{ '+' + item.nums }}</text>
                 </f-tag>
             </block>

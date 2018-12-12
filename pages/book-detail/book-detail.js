@@ -55,5 +55,32 @@ Page({
   onLike (ev) {
     const likeOrCancel = ev.detail.behavior
     likeModel.like(likeOrCancel, this.data.detail.id, 400)
+  },
+  tagCallBack (ev) {
+    console.log(ev.detail)
+    let { text } = ev.detail
+    if(text.length > 12) {
+      wx.showToast({
+        title: '短评最多12个字',
+        icno: 'none'
+      })
+      return
+    }
+    bookModel.postComment(this.data.detail.id, text)
+      .then(res => {
+        wx.showToast({
+          title: '+ 1',
+          icon: "none"
+        })
+        this.data.comments.unshift({
+          content: text,
+          nums: 1
+        })
+
+        this.setData({
+          comments: this.data.comments,
+          posting: false
+        })
+      })
   }
-})
+  })
