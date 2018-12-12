@@ -62,7 +62,7 @@
                 </f-tag>
             </block>
     </view>
-    <input bindconfirm="onPost" class="post" placeholder='短评最多12个字'></input>
+    <input bindconfirm="tagCallBack" class="post" placeholder='短评最多12个字'></input>
 </view>
 <f-mask wx:if="{{ posting }}" />
 <wxs module="toolStyle">

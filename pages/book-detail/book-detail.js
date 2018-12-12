@@ -57,23 +57,22 @@ Page({
     likeModel.like(likeOrCancel, this.data.detail.id, 400)
   },
   tagCallBack (ev) {
-    console.log(ev.detail)
-    let { text } = ev.detail
-    if(text.length > 12) {
+    let comment = ev.detail.text || ev.detail.value
+    if (comment.length > 12) {
       wx.showToast({
         title: '短评最多12个字',
         icno: 'none'
       })
       return
     }
-    bookModel.postComment(this.data.detail.id, text)
+    bookModel.postComment(this.data.detail.id, comment)
       .then(res => {
         wx.showToast({
           title: '+ 1',
           icon: "none"
         })
         this.data.comments.unshift({
-          content: text,
+          content: comment,
           nums: 1
         })
 
