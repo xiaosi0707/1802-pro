@@ -85,7 +85,6 @@ Page({
     })
   },
   onReachBottom () {
-    console.log(1)
     this.setData({
       more: Math.random()
     })

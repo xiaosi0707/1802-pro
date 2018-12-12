@@ -29,8 +29,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    // observer调用 - 加载更多
     _load_more () {
-      console.log(1)
+      const dataLength = this.data.dataArray.length
+      bookModel.getSearchList(dataLength, this.data.val).then(res => {
+        let tempArr = this.data.dataArray.concat(res.books)
+        this.setData({
+          dataArray: tempArr
+        })
+      })
     },
     onCancel () {
       this.triggerEvent('cancel', {}, {})
@@ -43,7 +50,6 @@ Component({
       const word = ev.detail.value // 从热门搜索、历史记录、输入，取value值
       // 搜索API请求
       bookModel.getSearchList(0, word).then(res => {
-        console.log(res)
         this.setData({
           dataArray: res.books,
           val: word
