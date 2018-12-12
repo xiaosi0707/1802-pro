@@ -27,6 +27,7 @@ Page({
     const detail = bookModel.getBookDetail(id)
     const comments = bookModel.getComments(id)
     const likeStatus = bookModel.getLikeStatus(id)
+    // promise.all，还有另外一个方法race竞争，最快的完成了执行回调函数，并非等待全部完成
     Promise.all([detail, comments, likeStatus]).then(res => {
       console.log(res)
       wx.hideLoading()

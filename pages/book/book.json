@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "f-book": "/components/classic/book/index"
+    "f-book": "/components/classic/book/index",
+    "f-search": "/components/classic/search/index"
   }
 }
