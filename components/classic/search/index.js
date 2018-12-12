@@ -22,7 +22,8 @@ Component({
     hotWords: [],
     searching: false,
     dataArray: [],
-    val: ''
+    val: '',
+    loading: false
   },
 
   /**
@@ -31,12 +32,19 @@ Component({
   methods: {
     // observer调用 - 加载更多
     _load_more () {
+      // 如果loading为true，禁止后续代码执行 - 正在加载...
+      if(this.data.loading) {
+        return
+      }
       const dataLength = this.data.dataArray.length
+      // 发送请求之前设置loading状态为true - 开始
+        this.data.loading = true
       bookModel.getSearchList(dataLength, this.data.val).then(res => {
         let tempArr = this.data.dataArray.concat(res.books)
         this.setData({
           dataArray: tempArr
         })
+        this.data.loading = false // 加载成功，loading状态变为false - 关闭
       })
     },
     onCancel () {
