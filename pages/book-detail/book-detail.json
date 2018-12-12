@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "f-tag": "/components/classic/tag/index",
-    "f-like": "/components/classic/like/index"
+    "f-like": "/components/classic/like/index",
+    "f-mask": "/components/classic/mask/index"
   }
 }

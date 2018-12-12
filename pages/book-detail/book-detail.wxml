@@ -57,10 +57,25 @@
     </view>
     <view class="comment-container">
         <block wx:for="{{ util.limit(comments.comments, 3) }}" wx:key="content">
-                <f-tag tag-class="{{ index==0 ? 'ex-tag1' : '' || index ==1 ? 'ex-tag2' : '' }}" text="{{item.content}}">
+                <f-tag tag-class="{{toolStyle.commentsStyle(index)}}" text="{{item.content}}">
                     <text class="num" slot="after">{{ '+' + item.nums }}</text>
                 </f-tag>
             </block>
     </view>
     <input bindconfirm="onPost" class="post" placeholder='短评最多12个字'></input>
 </view>
+<f-mask wx:if="{{ posting }}" />
+<wxs module="toolStyle">
+  var commentsStyle = function(index) {
+    if(index == 0) {
+      return 'ex-tag1'
+    } else if (index == 1) {
+      return 'ex-tag2'
+    } else {
+      return ''
+    }
+  }
+  module.exports = {
+    commentsStyle: commentsStyle
+  }
+</wxs>
