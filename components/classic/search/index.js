@@ -4,6 +4,7 @@ import { BookModel } from '../../../models/book.js'
 const keywordModel = new KeyWordsModel()
 const bookModel = new BookModel()
 Component({
+  behaviors: [],
   /**
    * 组件的属性列表
    */
@@ -22,6 +23,7 @@ Component({
     hotWords: [],
     searching: false,
     dataArray: [],
+    dataTotal: 0,
     val: '',
     loading: false
   },
@@ -32,13 +34,15 @@ Component({
   methods: {
     // observer调用 - 加载更多
     _load_more () {
-      // 如果loading为true，禁止后续代码执行 - 正在加载...
-      if(this.data.loading) {
+      const dataLength = this.data.dataArray.length
+      // 如果loading为true或总的数据长度等于已返回数据的长度，禁止后续代码执行 - 正在加载...
+      if (this.data.loading || this.data.dataTotal == dataLength) {
         return
       }
-      const dataLength = this.data.dataArray.length
+      
       // 发送请求之前设置loading状态为true - 开始
-        this.data.loading = true
+      console.log(this.data.dataTotal)
+      this.data.loading = true
       bookModel.getSearchList(dataLength, this.data.val).then(res => {
         let tempArr = this.data.dataArray.concat(res.books)
         this.setData({
@@ -50,7 +54,7 @@ Component({
     onCancel () {
       this.triggerEvent('cancel', {}, {})
     },
-    // PC回车存入缓存 真机完成存入缓存
+    // PC回车存入storage 真机点击完成存入storage
     onConfirm (ev) {
       this.setData({
         searching: true
@@ -58,8 +62,10 @@ Component({
       const word = ev.detail.value // 从热门搜索、历史记录、输入，取value值
       // 搜索API请求
       bookModel.getSearchList(0, word).then(res => {
+        console.log(res)
         this.setData({
           dataArray: res.books,
+          dataTotal: res.total,
           val: word
         })
         // 搜索到结果后添加到storage，没结果没意义
@@ -74,6 +80,7 @@ Component({
     }
   },
   attached () {
+    
     // storage数据
     this.setData({
       historyWords: keywordModel.getHistory() // 从storage中获取数据
