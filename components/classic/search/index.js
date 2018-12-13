@@ -25,7 +25,9 @@ Component({
     dataArray: [],
     dataTotal: 0,
     val: '',
-    loading: false
+    loading: false,
+    noneResult: false,
+    isLoading: '正在加载...'
   },
 
   /**
@@ -37,6 +39,9 @@ Component({
       const dataLength = this.data.dataArray.length
       // 如果loading为true或总的数据长度等于已返回数据的长度，禁止后续代码执行 - 正在加载...
       if (this.data.loading || this.data.dataTotal == dataLength) {
+        this.setData({
+          isLoading: '我是有底线的'
+        })
         return
       }
       
@@ -56,13 +61,16 @@ Component({
     },
     // PC回车存入storage 真机点击完成存入storage
     onConfirm (ev) {
+      wx.showLoading({
+        title: '搜索中...',
+      })
       this.setData({
-        searching: true
+        searching: true,
+        isLoading: '正在加载...'
       })
       const word = ev.detail.value // 从热门搜索、历史记录、输入，取value值
       // 搜索API请求
       bookModel.getSearchList(0, word).then(res => {
-        console.log(res)
         this.setData({
           dataArray: res.books,
           dataTotal: res.total,
@@ -70,6 +78,7 @@ Component({
         })
         // 搜索到结果后添加到storage，没结果没意义
         keywordModel.addToHistory(word) 
+        wx.hideLoading() // 搜索完毕
       })
       
     },
